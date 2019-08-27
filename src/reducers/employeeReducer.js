@@ -11,7 +11,7 @@ const initialState = {
     name: "mehdi",
     email: "ala@ala.a",
     phone: "0541863592",
-    role: "admin",
+    role: "serveur",
     token: "sdklfjqsifdklfnclmkvoxjvcxwv"
   },
   EmployeeList: [

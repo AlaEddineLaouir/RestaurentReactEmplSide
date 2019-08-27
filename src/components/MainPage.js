@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import LoginForm from "./Auth/LoginForm";
 import AdminSpace from "./Admin/AdminSpace";
+import WaiterSpace from "./Waiter/WaiterSpace";
 
 class MainPage extends Component {
   render() {
@@ -11,6 +12,8 @@ class MainPage extends Component {
     switch (role) {
       case "admin":
         return <AdminSpace />;
+      case "serveur":
+        return <WaiterSpace />;
       default:
         return <LoginForm />;
     }
