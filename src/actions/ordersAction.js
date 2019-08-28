@@ -6,7 +6,10 @@ import {
   PREPARE_ORDER,
   ORDER_PREPARED,
   GET_ORDERS_TO_BE_PREPARED,
-  GET_ON_PREPARATION_ORDERS
+  GET_ON_PREPARATION_ORDERS,
+  DELIVER_ORDER,
+  PAY_DELIVERY_ORDER,
+  GET_ON_DELIVERY_ORDERS
 } from "./types";
 
 export const getServedOrders = () => dispatch => {
@@ -57,5 +60,29 @@ export const getToBePreparedOrders = () => dispatch => {
 export const getOnPreparetionOrders = () => dispatch => {
   dispatch({
     type: GET_ON_PREPARATION_ORDERS
+  });
+};
+
+export const deliverOrder = id => dispatch => {
+  dispatch({
+    type: DELIVER_ORDER,
+    payload: id
+  });
+};
+
+export const payDeliveryOrder = id => dispatch => {
+  dispatch({
+    type: PAY_DELIVERY_ORDER,
+    payload: id
+  });
+};
+export const getOnDeliveryOrders = () => dispatch => {
+  dispatch({
+    type: GET_ON_DELIVERY_ORDERS
+  });
+};
+export const getToBeDeliveredOrders = () => dispatch => {
+  dispatch({
+    type: GET_ON_DELIVERY_ORDERS
   });
 };

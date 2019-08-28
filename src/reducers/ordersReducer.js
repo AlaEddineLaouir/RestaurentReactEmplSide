@@ -6,7 +6,11 @@ import {
   GET_ON_PREPARATION_ORDERS,
   GET_ORDERS_TO_BE_PREPARED,
   ORDER_PREPARED,
-  PREPARE_ORDER
+  PREPARE_ORDER,
+  GET_ORDERS_TO_BE_DELIVERD,
+  GET_ON_DELIVERY_ORDERS,
+  DELIVER_ORDER,
+  PAY_DELIVERY_ORDER
 } from "../actions/types";
 
 const intialState = {
@@ -226,6 +230,114 @@ const intialState = {
           }
         ]
       }
+    ],
+    toBeDeliveredOrders: [
+      {
+        id: 1,
+        state: "prete",
+        table: "3: 4iem etag deuaxiem a droite",
+        total: 1550,
+        orders: [
+          {
+            dish: {
+              id: 1,
+              name: "frite",
+              price: "750 DA",
+              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
+            },
+            quantity: 2
+          },
+          {
+            dish: {
+              id: 2,
+              name: "viande",
+              price: "800 DA",
+              description: "taktaktaktataktataktaktaktaktaktak"
+            },
+            quantity: 1
+          }
+        ]
+      },
+      {
+        id: 2,
+        state: "prete",
+        table: "2: 2iem etag premier a droite",
+        total: 1550,
+        orders: [
+          {
+            dish: {
+              id: 1,
+              name: "frite",
+              price: "750 DA",
+              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
+            },
+            quantity: 2
+          },
+          {
+            dish: {
+              id: 2,
+              name: "viande",
+              price: "800 DA",
+              description: "taktaktaktataktataktaktaktaktaktak"
+            },
+            quantity: 1
+          }
+        ]
+      }
+    ],
+    onDeliveryOrders: [
+      {
+        id: 1,
+        state: "livrer",
+        table: "3: 4iem etag deuaxiem a droite",
+        total: 1550,
+        orders: [
+          {
+            dish: {
+              id: 1,
+              name: "frite",
+              price: "750 DA",
+              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
+            },
+            quantity: 2
+          },
+          {
+            dish: {
+              id: 2,
+              name: "viande",
+              price: "800 DA",
+              description: "taktaktaktataktataktaktaktaktaktak"
+            },
+            quantity: 1
+          }
+        ]
+      },
+      {
+        id: 2,
+        state: "livrer",
+        table: "2: 2iem etag premier a droite",
+        total: 1550,
+        orders: [
+          {
+            dish: {
+              id: 1,
+              name: "frite",
+              price: "750 DA",
+              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
+            },
+            quantity: 2
+          },
+          {
+            dish: {
+              id: 2,
+              name: "viande",
+              price: "800 DA",
+              description: "taktaktaktataktataktaktaktaktaktak"
+            },
+            quantity: 1
+          }
+        ]
+      }
     ]
   }
 };
@@ -240,6 +352,31 @@ export default function(state = intialState, action) {
       return state;
     case GET_ORDERS_TO_BE_PREPARED:
       return state;
+    case GET_ORDERS_TO_BE_DELIVERD:
+      return state;
+    case GET_ON_DELIVERY_ORDERS:
+      return state;
+
+    case DELIVER_ORDER:
+      return {
+        ...state,
+        orders: {
+          ...state.orders,
+          toBeDeliveredOrders: state.orders.toBeDeliveredOrders.filter(
+            order => order.id !== action.payload
+          )
+        }
+      };
+    case PAY_DELIVERY_ORDER:
+      return {
+        ...state,
+        orders: {
+          ...state.orders,
+          onDeliveryOrders: state.orders.onDeliveryOrders.filter(
+            order => order.id !== action.payload
+          )
+        }
+      };
     case SERVE_ORDER:
       return {
         ...state,
