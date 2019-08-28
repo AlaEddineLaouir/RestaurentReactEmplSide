@@ -11,7 +11,7 @@ const initialState = {
     name: "mehdi",
     email: "ala@ala.a",
     phone: "0541863592",
-    role: "serveur",
+    role: "chef",
     token: "sdklfjqsifdklfnclmkvoxjvcxwv"
   },
   EmployeeList: [
@@ -28,7 +28,7 @@ const initialState = {
       name: "mPix",
       email: "alqsda@alqsqda.a",
       phone: "0541854564wxc63592",
-      role: "serveur",
+      role: "caissier",
       token: "sdklfjqsifdklfnclmkvoxjvcxwv"
     }
   ]

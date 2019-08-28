@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import LoginForm from "./Auth/LoginForm";
 import AdminSpace from "./Admin/AdminSpace";
 import WaiterSpace from "./Waiter/WaiterSpace";
+import CachierSpace from "./Cashier/CachierSpace";
+import ChefSpace from "./Chef/ChefSpace";
 
 class MainPage extends Component {
   render() {
@@ -14,6 +16,10 @@ class MainPage extends Component {
         return <AdminSpace />;
       case "serveur":
         return <WaiterSpace />;
+      case "caissier":
+        return <CachierSpace />;
+      case "chef":
+        return <ChefSpace />;
       default:
         return <LoginForm />;
     }
