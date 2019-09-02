@@ -9,7 +9,9 @@ import {
   GET_ON_PREPARATION_ORDERS,
   DELIVER_ORDER,
   PAY_DELIVERY_ORDER,
-  GET_ON_DELIVERY_ORDERS
+  GET_ON_DELIVERY_ORDERS,
+  GET_ONLINE_ORDERS,
+  VALIDE_ORDER
 } from "./types";
 
 export const getServedOrders = () => dispatch => {
@@ -84,5 +86,18 @@ export const getOnDeliveryOrders = () => dispatch => {
 export const getToBeDeliveredOrders = () => dispatch => {
   dispatch({
     type: GET_ON_DELIVERY_ORDERS
+  });
+};
+
+export const getOnlineOrders = () => dispatch => {
+  dispatch({
+    type: GET_ONLINE_ORDERS
+  });
+};
+
+export const valideOrder = id => dispatch => {
+  dispatch({
+    type: VALIDE_ORDER,
+    payload: id
   });
 };

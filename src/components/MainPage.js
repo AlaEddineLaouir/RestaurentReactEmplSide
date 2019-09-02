@@ -7,6 +7,7 @@ import WaiterSpace from "./Waiter/WaiterSpace";
 import CachierSpace from "./Cashier/CachierSpace";
 import ChefSpace from "./Chef/ChefSpace";
 import DeliveryGuySpace from "./DeliveryGuy/DeliveryGuySpace";
+import ManagerSpace from "./Manager/ManagerSpace";
 
 class MainPage extends Component {
   render() {
@@ -23,6 +24,8 @@ class MainPage extends Component {
         return <ChefSpace />;
       case "livreur":
         return <DeliveryGuySpace />;
+      case "RC":
+        return <ManagerSpace />;
       default:
         return <LoginForm />;
     }

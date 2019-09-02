@@ -10,7 +10,9 @@ import {
   GET_ORDERS_TO_BE_DELIVERD,
   GET_ON_DELIVERY_ORDERS,
   DELIVER_ORDER,
-  PAY_DELIVERY_ORDER
+  PAY_DELIVERY_ORDER,
+  GET_ONLINE_ORDERS,
+  VALIDE_ORDER
 } from "../actions/types";
 
 const intialState = {
@@ -338,6 +340,60 @@ const intialState = {
           }
         ]
       }
+    ],
+    onlineOrders: [
+      {
+        id: 1,
+        state: "nonValide",
+        table: "3: 4iem etag deuaxiem a droite",
+        total: 1550,
+        orders: [
+          {
+            dish: {
+              id: 1,
+              name: "frite",
+              price: "750 DA",
+              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
+            },
+            quantity: 2
+          },
+          {
+            dish: {
+              id: 2,
+              name: "viande",
+              price: "800 DA",
+              description: "taktaktaktataktataktaktaktaktaktak"
+            },
+            quantity: 1
+          }
+        ]
+      },
+      {
+        id: 2,
+        state: "nonValide",
+        table: "2: 2iem etag premier a droite",
+        total: 1550,
+        orders: [
+          {
+            dish: {
+              id: 1,
+              name: "frite",
+              price: "750 DA",
+              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
+            },
+            quantity: 2
+          },
+          {
+            dish: {
+              id: 2,
+              name: "viande",
+              price: "800 DA",
+              description: "taktaktaktataktataktaktaktaktaktak"
+            },
+            quantity: 1
+          }
+        ]
+      }
     ]
   }
 };
@@ -356,7 +412,18 @@ export default function(state = intialState, action) {
       return state;
     case GET_ON_DELIVERY_ORDERS:
       return state;
-
+    case GET_ONLINE_ORDERS:
+      return state;
+    case VALIDE_ORDER:
+      return {
+        ...state,
+        orders: {
+          ...state.orders,
+          onlineOrders: state.orders.onlineOrders.filter(
+            order => order.id !== action.payload
+          )
+        }
+      };
     case DELIVER_ORDER:
       return {
         ...state,
