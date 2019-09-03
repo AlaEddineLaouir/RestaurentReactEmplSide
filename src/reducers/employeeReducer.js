@@ -2,42 +2,32 @@ import {
   GET_EMPLOYEES_LIST,
   ADD_EMPLOYEE,
   DELETE_EMPLOYEE,
-  EDIT_EMPLOYEE
+  EDIT_EMPLOYEE,
+  LOGIN_EMPLOYEE
 } from "../actions/types";
 
 const initialState = {
-  User: {
-    id: 1,
-    name: "mehdi",
-    email: "ala@ala.a",
-    phone: "0541863592",
-    role: "RC",
-    token: "sdklfjqsifdklfnclmkvoxjvcxwv"
-  },
-  EmployeeList: [
-    {
-      id: 1,
-      name: "mehdi",
-      email: "ala@ala.a",
-      phone: "0541863592",
-      role: "admin",
-      token: "sdklfjqsifdklfnclmkvoxjvcxwv"
-    },
-    {
-      id: 2,
-      name: "mPix",
-      email: "alqsda@alqsqda.a",
-      phone: "0541854564wxc63592",
-      role: "caissier",
-      token: "sdklfjqsifdklfnclmkvoxjvcxwv"
-    }
-  ]
+  User: {},
+  token: "",
+  isLoggedIn: false,
+  EmployeeList: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case LOGIN_EMPLOYEE: {
+      return {
+        ...state,
+        User: action.payload.account,
+        token: action.payload.token,
+        isLoggedIn: true
+      };
+    }
     case GET_EMPLOYEES_LIST:
-      return state;
+      return {
+        ...state,
+        EmployeeList: action.payload
+      };
     case ADD_EMPLOYEE:
       return {
         ...state,

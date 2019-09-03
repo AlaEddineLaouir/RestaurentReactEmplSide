@@ -26,17 +26,19 @@ class EmployeeList extends Component {
     } else {
       const { EmployeeList } = this.props;
       return (
-        <div class="card">
-          <div class="card-header">Liste Des Employee</div>
-          <div class="card-body">
-            <table class="table table-hover">
+        <div className="card">
+          <div className="card-header">Liste Des Employee</div>
+          <div className="card-body">
+            <table className="table table-hover">
               <thead>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Role</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Role</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
               </thead>
               <tbody>
                 {EmployeeList.map(employee => (
@@ -73,14 +75,14 @@ class Employee extends Component {
         <td>{phone}</td>
         <td>{role}</td>
         <td>
-          <button class="btn btn-primary btn-sm" onClick={this.handleEdit}>
+          <button className="btn btn-primary btn-sm" onClick={this.handleEdit}>
             Edit
           </button>
         </td>
         <td>
           <form>
             <button
-              class="btn btn-secondary btn-sm"
+              className="btn btn-secondary btn-sm"
               onClick={this.handleDelete}
             >
               Delete

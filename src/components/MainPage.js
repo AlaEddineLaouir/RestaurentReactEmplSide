@@ -8,11 +8,14 @@ import CachierSpace from "./Cashier/CachierSpace";
 import ChefSpace from "./Chef/ChefSpace";
 import DeliveryGuySpace from "./DeliveryGuy/DeliveryGuySpace";
 import ManagerSpace from "./Manager/ManagerSpace";
+import { Redirect } from "react-router-dom";
 
 class MainPage extends Component {
   render() {
     const { role } = this.props.user;
-
+    if (!this.props.isLoggedIn) {
+      return <Redirect to="/login" />;
+    }
     switch (role) {
       case "admin":
         return <AdminSpace />;
@@ -33,10 +36,12 @@ class MainPage extends Component {
 }
 
 MainPage.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired
 };
 const mapStateToProp = state => ({
-  user: state.employeeAccount.User
+  user: state.employeeAccount.User,
+  isLoggedIn: state.employeeAccount.isLoggedIn
 });
 export default connect(
   mapStateToProp,

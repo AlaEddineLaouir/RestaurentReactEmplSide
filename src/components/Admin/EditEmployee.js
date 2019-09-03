@@ -21,6 +21,7 @@ class EditEmployee extends Component {
   };
 
   render() {
+    const { name, phone, email, role, password } = this.state;
     return (
       <div className="card">
         <div className="card-header">Modifier Compte Employee</div>
@@ -34,7 +35,7 @@ class EditEmployee extends Component {
                 id="name"
                 className="form-control"
                 onChange={this.onChange}
-                value={this.state.name}
+                value={name}
               />
             </div>
 
@@ -46,7 +47,7 @@ class EditEmployee extends Component {
                 id="email"
                 className="form-control"
                 onChange={this.onChange}
-                value={this.state.email}
+                value={email}
               />
             </div>
             <div className="form-group">
@@ -57,7 +58,7 @@ class EditEmployee extends Component {
                 id="phone"
                 className="form-control"
                 onChange={this.onChange}
-                value={this.state.phone}
+                value={phone}
               />
             </div>
             <div className="form-group">
@@ -66,7 +67,7 @@ class EditEmployee extends Component {
                 id="inlineFormCustomSelect"
                 name="role"
                 onChange={this.onChange}
-                value={this.state.role}
+                value={role}
               >
                 <option value="1">Serveur</option>
                 <option value="5">Livreur</option>
@@ -84,7 +85,7 @@ class EditEmployee extends Component {
                 id="password"
                 className="form-control"
                 onChange={this.onChange}
-                value={this.state.password}
+                value={password}
               />
             </div>
             <div className="form-group">
@@ -92,7 +93,7 @@ class EditEmployee extends Component {
                 onClick={this.handleEditEmployee}
                 className="btn btn-success btn-lg"
               >
-                Ajouter
+                Modifier
               </button>
             </div>
           </form>

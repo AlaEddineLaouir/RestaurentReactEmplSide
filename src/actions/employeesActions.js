@@ -2,30 +2,58 @@ import {
   GET_EMPLOYEES_LIST,
   ADD_EMPLOYEE,
   DELETE_EMPLOYEE,
-  EDIT_EMPLOYEE
+  EDIT_EMPLOYEE,
+  LOGIN_EMPLOYEE
 } from "./types";
+import Axios from "axios";
+import axios from "axios";
 
-export const getEmployeeList = () => dispatch => {
+export const logIn = user => async dispatch => {
+  const res = await axios.post("http://localhost:8000/api/loginEmployee", user);
+  Axios.defaults.headers["Authorization"] = "Bearer " + res.data.token;
+
   dispatch({
-    type: GET_EMPLOYEES_LIST
+    type: LOGIN_EMPLOYEE,
+    payload: res.data
   });
 };
 
-export const addEmployee = employee => dispatch => {
+export const getEmployeeList = () => async dispatch => {
+  const res = await axios.get("http://localhost:8000/api/employee/list");
+  dispatch({
+    type: GET_EMPLOYEES_LIST,
+    payload: res.data.data
+  });
+};
+
+export const addEmployee = employee => async dispatch => {
+  const res = await axios.post(
+    "http://localhost:8000/api/employee/add",
+    employee
+  );
+  console.log(res.data);
   dispatch({
     type: ADD_EMPLOYEE,
     payload: employee
   });
 };
 
-export const deleteEmployee = id => dispatch => {
+export const deleteEmployee = id => async dispatch => {
+  /*const res = await axios.delete(
+    "http://localhost:8000/api/employee/delete/" + id
+  );*/
   dispatch({
     type: DELETE_EMPLOYEE,
     payload: id
   });
 };
 
-export const editEmployee = employee => dispatch => {
+export const editEmployee = employee => async dispatch => {
+  const res = await axios.put(
+    "http://localhost:8000/api/employee/edit/" + employee.id,
+    employee
+  );
+  console.log(res.data);
   dispatch({
     type: EDIT_EMPLOYEE,
     payload: employee
