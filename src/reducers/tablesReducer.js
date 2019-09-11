@@ -8,23 +8,7 @@ import {
 } from "../actions/types";
 
 const initialState = {
-  tables: [
-    {
-      id: 1,
-      position: "qskdjqlksdqdlmqsl",
-      occupied: false
-    },
-    {
-      id: 2,
-      position: "ppppppqskdjqlksdqdlmqsl",
-      occupied: false
-    },
-    {
-      id: 3,
-      position: "zzzzzqskdjqlksdqdlmqsl",
-      occupied: true
-    }
-  ],
+  tables: [],
   nonOccupied: [],
   occupied: []
 };
@@ -32,11 +16,14 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_TABLE_LIST:
-      return state;
+      return {
+        ...state,
+        tables: action.payload
+      };
     case GET_NON_OCCUPIED_TABLE_LIST:
       return {
         ...state,
-        nonOccupied: state.tables.filter(table => !table.occupied)
+        nonOccupied: action.payload
       };
     case GET_OCCUPIED_TABLE_LIST:
       return {

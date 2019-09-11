@@ -8,6 +8,7 @@ import {
   DELETE_CATEGORY
 } from "./types";
 import axios from "axios";
+import { async } from "q";
 
 export const getMenu = () => async dispatch => {
   const res = await axios.get("http://localhost:8000/api/welcom");
@@ -17,39 +18,74 @@ export const getMenu = () => async dispatch => {
   });
 };
 
-export const addPlat = ({ categoryId, plat }) => dispatch => {
+export const addPlat = ({ categoryId, plat }) => async dispatch => {
+  const { name, price, description } = plat;
+
+  const res = await axios.post("http://localhost:8000/api/menu/plat/add", {
+    name,
+    price,
+    description,
+    category_id: categoryId
+  });
+
   dispatch({
     type: ADD_PLAT,
-    payload: { categoryId, plat }
+    payload: { categoryId, plat: res.data.data }
   });
 };
 
-export const editPlat = ({ categoryId, plat }) => dispatch => {
+export const editPlat = ({ categoryId, plat }) => async dispatch => {
+  const res = await axios.put(
+    "http://localhost:8000/api/menu/plat/edit/" + plat.id,
+    plat
+  );
+
   dispatch({
     type: EDIT_PLAT,
-    payload: { categoryId, plat }
+    payload: { categoryId, plat: res.data.data }
   });
 };
-export const deletePlat = ({ categoryId, plat }) => dispatch => {
+export const deletePlat = ({ categoryId, plat }) => async dispatch => {
+  const res = await axios.delete(
+    "http://localhost:8000/api/menu/plat/delete/" + plat
+  );
+  console.log("delete plat : " + res.data);
+
   dispatch({
     type: DELETE_PLAT,
     payload: { categoryId, plat }
   });
 };
 
-export const addCategory = category => dispatch => {
+export const addCategory = category => async dispatch => {
+  const title = category.name;
+  const res = await axios.post("http://localhost:8000/api/menu/category/add", {
+    title
+  });
+
   dispatch({
     type: ADD_CATEGORY,
-    payload: category
+    payload: res.data.data
   });
 };
-export const editCategory = category => dispatch => {
+export const editCategory = category => async dispatch => {
+  const title = category.name;
+  const res = await axios.put(
+    "http://localhost:8000/api/menu/category/edit/" + category.id,
+    { title, id: category.id }
+  );
+
   dispatch({
     type: EDIT_CATEGORY,
-    payload: category
+    payload: res.data.data
   });
 };
-export const deleteCategory = categoryId => dispatch => {
+export const deleteCategory = categoryId => async dispatch => {
+  const res = await axios.delete(
+    "http://localhost:8000/api/menu/category/delete/" + categoryId
+  );
+  console.log("delete category : " + res.data);
+
   dispatch({
     type: DELETE_CATEGORY,
     payload: categoryId

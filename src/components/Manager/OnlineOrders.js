@@ -27,6 +27,7 @@ class OnlineOrders extends Component {
                 order={order}
                 action={this.handleValidate}
                 actionTitle="Valider"
+                title={"Adress : " + order.adress}
               />
             ))}
           </div>

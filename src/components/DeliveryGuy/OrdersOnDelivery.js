@@ -29,6 +29,7 @@ class OrdersOnDelivery extends Component {
               order={order}
               action={this.handlePay}
               actionTitle="Regler"
+              title={"Adress : " + order.adress}
             />
           ))}
         </div>

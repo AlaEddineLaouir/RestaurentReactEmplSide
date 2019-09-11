@@ -2,29 +2,25 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getMenu } from "../../actions/menuActions";
-import { makeOrder } from "../../actions/ordersAction";
-import { getNonOccupiedTAbleList } from "../../actions/tableAction";
+import { editOrder } from "../../actions/ordersAction";
 import PickMenu from "./PickMenu";
 import NewOrder from "./NewOrder";
 
-class CreateOrder extends Component {
-  state = {
-    displayMenu: true,
-    orders: [],
-    table: 0
-  };
+class EditOrder extends Component {
   componentDidMount() {
     this.props.getMenu();
-    this.props.getNonOccupiedTAbleList();
+    this.setState({ order: this.props.order, orders: this.props.order.orders });
   }
-  handleAction = () => {
-    if (this.props.role === "RC") {
-      this.props.makeOrder(this.state.orders, true);
-    } else {
-      this.props.makeOrder(this.state.orders, false, this.state.table);
 
-      console.log(this.state.table);
-    }
+  state = {
+    displayMenu: false,
+    orders: []
+  };
+  handleAction = () => {
+    let { order } = this.state;
+    order.orders = this.state.orders;
+
+    this.props.editOrder(order);
   };
   handleShowMenu = () => {
     this.setState({ displayMenu: true });
@@ -32,11 +28,6 @@ class CreateOrder extends Component {
   handleShowOrder = () => {
     this.setState({ displayMenu: false });
   };
-
-  handleTableChange = id => {
-    this.setState({ table: id });
-  };
-
   onDishAdded = (dish, quantity) => {
     let existe = false;
     this.setState({
@@ -103,10 +94,7 @@ class CreateOrder extends Component {
             onQuantityChange={this.onQuantityChange}
             onDelete={this.onDelete}
             action={this.handleAction}
-            actionTitle="Commander"
-            tables={this.props.tables}
-            onTableChange={this.handleTableChange}
-            role={this.props.role}
+            actionTitle="Modifier"
           />
         </div>
       );
@@ -114,19 +102,16 @@ class CreateOrder extends Component {
   }
 }
 
-CreateOrder.propTypes = {
+EditOrder.propTypes = {
   categories: PropTypes.array.isRequired,
-  getMenu: PropTypes.func.isRequired,
-  makeOrder: PropTypes.func.isRequired,
-  role: PropTypes.string.isRequired,
-  tables: PropTypes.array.isRequired
+  getMenu: PropTypes.func.isRequired
 };
+
 const mapStateToProp = state => ({
-  categories: state.menu.categories,
-  role: state.employeeAccount.User.role,
-  tables: state.tables.nonOccupied
+  categories: state.menu.categories
 });
+
 export default connect(
   mapStateToProp,
-  { getMenu, makeOrder, getNonOccupiedTAbleList }
-)(CreateOrder);
+  { getMenu, editOrder }
+)(EditOrder);

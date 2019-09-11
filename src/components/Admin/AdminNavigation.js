@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-
+import { connect } from "react-redux";
+import { logout } from "../../actions/employeesActions";
 class AdminNavigation extends Component {
+  handleLogout = () => {
+    this.props.logout();
+  };
+
   handleShow = () => {
     this.props.navigation(true);
   };
@@ -10,7 +15,15 @@ class AdminNavigation extends Component {
   render() {
     return (
       <div className="card card-default">
-        <div className="card-header">Adminstrateur</div>
+        <div className="card-header">
+          Adminstrateur
+          <button
+            className="btn btn-danger float-right"
+            onClick={this.handleLogout}
+          >
+            Quitter
+          </button>
+        </div>
         <div className="card-body">
           <ul className="list-group">
             <li className="list-group-item">
@@ -29,4 +42,10 @@ class AdminNavigation extends Component {
     );
   }
 }
-export default AdminNavigation;
+
+const mapStateToProp = state => ({});
+
+export default connect(
+  mapStateToProp,
+  { logout }
+)(AdminNavigation);

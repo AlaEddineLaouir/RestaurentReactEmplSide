@@ -11,6 +11,7 @@ class OrdersToBeServedList extends Component {
     this.props.serveOrder(id);
   };
 
+  //Here At the Render We must add If Else to either dispaly table or TakeAway in Order
   render() {
     const { orders } = this.props;
     return (
@@ -26,6 +27,7 @@ class OrdersToBeServedList extends Component {
                 order={order}
                 action={this.handleServis}
                 actionTitle="Servis"
+                title={"Table : " + order.table}
               />
             ))}
           </div>

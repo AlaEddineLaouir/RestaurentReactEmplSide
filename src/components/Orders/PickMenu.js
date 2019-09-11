@@ -69,18 +69,25 @@ class MenuDishe extends Component {
         </div>
         <div className="card-footer bg-secondary text-white">
           <form className="form-inline">
-            <div className="form-group ">
-              <label htmlFor="quantity">Quantity :</label>
-              <input
-                type="number"
-                className="form-control form-control-small"
-                name="quantity"
-                value={this.state.quantity}
-                onChange={this.onChange}
-              />
-              <button className="btn btn-success" onClick={this.handleAddDish}>
-                Ajouter
-              </button>
+            <div className="form-row align-items-center">
+              <div className="col-auto">
+                <label htmlFor="quantity">Quantity :</label>
+                <input
+                  type="number"
+                  className="form-control form-control-small"
+                  name="quantity"
+                  value={this.state.quantity}
+                  onChange={this.onChange}
+                />
+              </div>
+              <div className="col-auto">
+                <button
+                  className="btn btn-success"
+                  onClick={this.handleAddDish}
+                >
+                  Ajouter
+                </button>
+              </div>
             </div>
           </form>
         </div>

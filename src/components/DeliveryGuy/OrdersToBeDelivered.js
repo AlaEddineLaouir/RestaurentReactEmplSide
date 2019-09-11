@@ -29,6 +29,7 @@ class OrdersToBeDelivered extends Component {
               order={order}
               action={this.handleDeliver}
               actionTitle="Livrer"
+              title={"Adress : " + order.adress}
             />
           ))}
         </div>

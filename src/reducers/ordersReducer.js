@@ -17,403 +17,53 @@ import {
 
 const intialState = {
   orders: {
-    servedOrders: [
-      {
-        id: 1,
-        state: "servis",
-        table: "3: 4iem etag deuaxiem a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      },
-      {
-        id: 2,
-        state: "servis",
-        table: "2: 2iem etag premier a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      }
-    ],
-    toBeServedOrders: [
-      {
-        id: 1,
-        state: "prete",
-        table: "3: 4iem etag deuaxiem a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      },
-      {
-        id: 2,
-        state: "prete",
-        table: "2: 2iem etag premier a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      }
-    ],
-    toBePreparedOrders: [
-      {
-        id: 1,
-        state: "valide",
-        table: "3: 4iem etag deuaxiem a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      },
-      {
-        id: 2,
-        state: "valide",
-        table: "2: 2iem etag premier a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      }
-    ],
-    onPreparationOrders: [
-      {
-        id: 1,
-        state: "traitement",
-        table: "3: 4iem etag deuaxiem a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      },
-      {
-        id: 2,
-        state: "traitement",
-        table: "2: 2iem etag premier a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      }
-    ],
-    toBeDeliveredOrders: [
-      {
-        id: 1,
-        state: "prete",
-        table: "3: 4iem etag deuaxiem a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      },
-      {
-        id: 2,
-        state: "prete",
-        table: "2: 2iem etag premier a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      }
-    ],
-    onDeliveryOrders: [
-      {
-        id: 1,
-        state: "livrer",
-        table: "3: 4iem etag deuaxiem a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      },
-      {
-        id: 2,
-        state: "livrer",
-        table: "2: 2iem etag premier a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      }
-    ],
-    onlineOrders: [
-      {
-        id: 1,
-        state: "nonValide",
-        table: "3: 4iem etag deuaxiem a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      },
-      {
-        id: 2,
-        state: "nonValide",
-        table: "2: 2iem etag premier a droite",
-        total: 1550,
-        orders: [
-          {
-            dish: {
-              id: 1,
-              name: "frite",
-              price: "750 DA",
-              description: "kjfcsdvjqqdslkvjkljvlkdsvv"
-            },
-            quantity: 2
-          },
-          {
-            dish: {
-              id: 2,
-              name: "viande",
-              price: "800 DA",
-              description: "taktaktaktataktataktaktaktaktaktak"
-            },
-            quantity: 1
-          }
-        ]
-      }
-    ]
+    servedOrders: [],
+    toBeServedOrders: [],
+    toBePreparedOrders: [],
+    onPreparationOrders: [],
+    toBeDeliveredOrders: [],
+    onDeliveryOrders: [],
+    onlineOrders: []
   }
 };
 
 export default function(state = intialState, action) {
   switch (action.type) {
     case GET_SERVED_ORDERS:
-      return state;
+      return {
+        ...state,
+        orders: { ...state.orders, servedOrders: action.payload }
+      };
     case GET_ORDERS_TO_BE_SERVED:
-      return state;
+      return {
+        ...state,
+        orders: { ...state.orders, toBeServedOrders: action.payload }
+      };
     case GET_ON_PREPARATION_ORDERS:
-      return state;
+      return {
+        ...state,
+        orders: { ...state.orders, onPreparationOrders: action.payload }
+      };
     case GET_ORDERS_TO_BE_PREPARED:
-      return state;
+      return {
+        ...state,
+        orders: { ...state.orders, toBePreparedOrders: action.payload }
+      };
     case GET_ORDERS_TO_BE_DELIVERD:
-      return state;
+      return {
+        ...state,
+        orders: { ...state.orders, toBeDeliveredOrders: action.payload }
+      };
     case GET_ON_DELIVERY_ORDERS:
-      return state;
+      return {
+        ...state,
+        orders: { ...state.orders, onDeliveryOrders: action.payload }
+      };
     case GET_ONLINE_ORDERS:
-      return state;
+      return {
+        ...state,
+        orders: { ...state.orders, onlineOrders: action.payload }
+      };
     case VALIDE_ORDER:
       return {
         ...state,

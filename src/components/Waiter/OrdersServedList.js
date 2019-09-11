@@ -28,6 +28,7 @@ class OrdersServedList extends Component {
                 order={order}
                 action={this.handlePay}
                 actionTitle="Regler"
+                title={"Table : " + order.table}
               />
             ))}
           </div>

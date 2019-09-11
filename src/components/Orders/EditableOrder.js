@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Order extends Component {
+export default class EditableOrder extends Component {
   state = {
     isDetailed: false
   };
@@ -17,6 +17,13 @@ class Order extends Component {
     this.props.action(id);
   };
 
+  handleDelete = () => {
+    this.props.delete(this.props.order.id);
+  };
+  handleEdit = () => {
+    this.props.showEdit(this.props.order);
+  };
+
   render() {
     const { order } = this.props;
 
@@ -25,7 +32,7 @@ class Order extends Component {
         <div className="col-sm-6">
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">{this.props.title}</h5>
+              <h5 className="card-title">Numero : {order.id}</h5>
               <p className="card-text">
                 <span>Etat : {order.state}</span>
                 <span className="float-right">Total : {order.total} </span>
@@ -84,6 +91,18 @@ class Order extends Component {
               >
                 {this.props.actionTitle}
               </button>
+              <button
+                onClick={this.handleEdit}
+                className="btn btn-secondary float-right"
+              >
+                Modifier
+              </button>
+              <button
+                onClick={this.handleDelete}
+                className="btn btn-danger float-right"
+              >
+                Annuler
+              </button>
             </div>
           </div>
         </div>
@@ -91,5 +110,3 @@ class Order extends Component {
     }
   }
 }
-
-export default Order;

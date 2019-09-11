@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
-export default class WaiterNavigation extends Component {
+import { connect } from "react-redux";
+import { logout } from "../../actions/employeesActions";
+class WaiterNavigation extends Component {
   handleShowCreateOrder = () => {
     this.props.navigation("new");
   };
@@ -10,11 +11,22 @@ export default class WaiterNavigation extends Component {
   handleShowOrdersServed = () => {
     this.props.navigation("served");
   };
+  handleLogout = () => {
+    this.props.logout();
+  };
 
   render() {
     return (
       <div className="card card-default">
-        <div className="card-header">Serveur</div>
+        <div className="card-header">
+          Serveur
+          <button
+            className="btn btn-danger float-right"
+            onClick={this.handleLogout}
+          >
+            Quitter
+          </button>
+        </div>
         <div className="card-body">
           <ul className="list-group">
             <li className="list-group-item">
@@ -47,3 +59,8 @@ export default class WaiterNavigation extends Component {
     );
   }
 }
+const mapStateToProp = state => ({});
+export default connect(
+  mapStateToProp,
+  { logout }
+)(WaiterNavigation);

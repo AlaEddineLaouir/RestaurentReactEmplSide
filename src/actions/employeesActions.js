@@ -3,7 +3,8 @@ import {
   ADD_EMPLOYEE,
   DELETE_EMPLOYEE,
   EDIT_EMPLOYEE,
-  LOGIN_EMPLOYEE
+  LOGIN_EMPLOYEE,
+  LOGOUT_EMPLOYEE
 } from "./types";
 import Axios from "axios";
 import axios from "axios";
@@ -57,5 +58,13 @@ export const editEmployee = employee => async dispatch => {
   dispatch({
     type: EDIT_EMPLOYEE,
     payload: employee
+  });
+};
+
+export const logout = () => async dispatch => {
+  const res = await axios.get("http://localhost:8000/api/employee/logout");
+  console.log(res.data);
+  dispatch({
+    type: LOGOUT_EMPLOYEE
   });
 };

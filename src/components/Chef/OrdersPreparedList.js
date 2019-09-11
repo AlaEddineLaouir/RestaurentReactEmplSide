@@ -1,15 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Order from "../Order";
+import EditableOrder from "../Orders/EditableOrder";
 import {
   getOnPreparetionOrders,
-  preparedOrder
+  preparedOrder,
+  deleteOrder
 } from "../../actions/ordersAction";
 import PropTypes from "prop-types";
 
 class OrdersPreparedList extends Component {
+  componentDidMount() {
+    this.props.getOnPreparetionOrders();
+  }
+
   handleDonePreparing = id => {
     this.props.preparedOrder(id);
+  };
+
+  handleDeleteOrder = orderId => {
+    this.props.deleteOrder(orderId);
   };
   render() {
     const { orders } = this.props;
@@ -21,11 +30,13 @@ class OrdersPreparedList extends Component {
         <div className="card-body">
           <div className="row">
             {orders.map(order => (
-              <Order
+              <EditableOrder
                 order={order}
                 key={order.id}
                 action={this.handleDonePreparing}
                 actionTitle="PRET"
+                delete={this.handleDeleteOrder}
+                showEdit={this.props.showEdit}
               />
             ))}
           </div>
@@ -46,5 +57,5 @@ const mapStateToProp = state => ({
 });
 export default connect(
   mapStateToProp,
-  { preparedOrder, getOnPreparetionOrders }
+  { preparedOrder, getOnPreparetionOrders, deleteOrder }
 )(OrdersPreparedList);

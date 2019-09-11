@@ -3,7 +3,8 @@ import {
   ADD_EMPLOYEE,
   DELETE_EMPLOYEE,
   EDIT_EMPLOYEE,
-  LOGIN_EMPLOYEE
+  LOGIN_EMPLOYEE,
+  LOGOUT_EMPLOYEE
 } from "../actions/types";
 
 const initialState = {
@@ -23,6 +24,13 @@ export default function(state = initialState, action) {
         isLoggedIn: true
       };
     }
+    case LOGOUT_EMPLOYEE:
+      return {
+        ...state,
+        User: {},
+        token: "",
+        isLoggedIn: false
+      };
     case GET_EMPLOYEES_LIST:
       return {
         ...state,

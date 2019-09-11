@@ -1,17 +1,29 @@
 import React, { Component } from "react";
-
-export default class DeliveryGuyNavigation extends Component {
+import { connect } from "react-redux";
+import { logout } from "../../actions/employeesActions";
+class DeliveryGuyNavigation extends Component {
   handleShow = () => {
     this.props.navigation(true);
   };
   handleHide = () => {
     this.props.navigation(false);
   };
+  handleLogout = () => {
+    this.props.logout();
+  };
   render() {
     return (
       <div className="card card-default">
         <div className="card-header">
-          <h3 className="card-title">Livreur</h3>
+          <h3 className="card-title">
+            Livreur
+            <button
+              className="btn btn-danger float-right"
+              onClick={this.handleLogout}
+            >
+              Quitter
+            </button>
+          </h3>
         </div>
         <div className="card-body">
           <ul className="list-group">
@@ -31,3 +43,8 @@ export default class DeliveryGuyNavigation extends Component {
     );
   }
 }
+const mapStateToProp = state => ({});
+export default connect(
+  mapStateToProp,
+  { logout }
+)(DeliveryGuyNavigation);

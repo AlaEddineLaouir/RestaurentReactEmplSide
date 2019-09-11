@@ -23,7 +23,7 @@ class MainPage extends Component {
         return <WaiterSpace />;
       case "caissier":
         return <CachierSpace />;
-      case "chef":
+      case "cuisinier":
         return <ChefSpace />;
       case "livreur":
         return <DeliveryGuySpace />;
