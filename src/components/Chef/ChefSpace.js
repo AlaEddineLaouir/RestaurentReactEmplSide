@@ -22,35 +22,35 @@ export default class ChefSpace extends Component {
   render() {
     if (this.state.showEdit) {
       return (
-        <div className="row">
-          <div className="col col-md-4">
-            <ChefNavigation navigation={this.handleNavigation} />
-          </div>
-          <div className="col col-md-8">
-            <EditOrder order={this.state.order} />
+        <div>
+          <ChefNavigation navigation={this.handleNavigation} />
+          <div className="row">
+            <div className="col">
+              <EditOrder order={this.state.order} />
+            </div>
           </div>
         </div>
       );
     } else {
       if (this.state.showNewOrders) {
         return (
-          <div className="row">
-            <div className="col col-md-4">
-              <ChefNavigation navigation={this.handleNavigation} />
-            </div>
-            <div className="col col-md-8">
-              <OrdersToPrepareList showEdit={this.handleShowEdit} />
+          <div>
+            <ChefNavigation navigation={this.handleNavigation} />
+            <div className="row">
+              <div className="col">
+                <OrdersToPrepareList showEdit={this.handleShowEdit} />
+              </div>
             </div>
           </div>
         );
       } else {
         return (
-          <div className="row">
-            <div className="col col-md-4">
-              <ChefNavigation navigation={this.handleNavigation} />
-            </div>
-            <div className="col col-md-8">
-              <OrdersPreparedList showEdit={this.handleShowEdit} />
+          <div>
+            <ChefNavigation navigation={this.handleNavigation} />
+            <div className="row">
+              <div className="col">
+                <OrdersPreparedList showEdit={this.handleShowEdit} />
+              </div>
             </div>
           </div>
         );

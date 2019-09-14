@@ -14,23 +14,23 @@ export default class AdminSpace extends Component {
   render() {
     if (this.state.showList) {
       return (
-        <div className="row">
-          <div className="col col-md-4">
-            <AdminNavigation navigation={this.handleNavigation} />
-          </div>
-          <div className="col col-md-8">
-            <EmployeeList />
+        <div>
+          <AdminNavigation navigation={this.handleNavigation} />
+          <div className="row">
+            <div className="col">
+              <EmployeeList />
+            </div>
           </div>
         </div>
       );
     } else {
       return (
-        <div className="row">
-          <div className="col col-md-4 ">
-            <AdminNavigation navigation={this.handleNavigation} />
-          </div>
-          <div className="col col-md-8">
-            <AddEmployee />
+        <div>
+          <AdminNavigation navigation={this.handleNavigation} />
+          <div className="row">
+            <div className="col">
+              <AddEmployee />
+            </div>
           </div>
         </div>
       );

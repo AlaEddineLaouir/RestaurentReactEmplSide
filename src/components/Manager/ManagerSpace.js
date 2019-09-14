@@ -16,57 +16,57 @@ export default class ManagerSpace extends Component {
     switch (this.state.whatToShow) {
       case "new":
         return (
-          <div className="row">
-            <div className="col col-md-4">
-              <ManagerNavigation navigation={this.handleNavigation} />
-            </div>
-            <div className="col col-md-8">
-              <CreateOrder />
+          <div className="">
+            <ManagerNavigation navigation={this.handleNavigation} />
+            <div className="row ">
+              <div className="col">
+                <CreateOrder />
+              </div>
             </div>
           </div>
         );
       case "onlineOrders":
         return (
-          <div className="row">
-            <div className="col col-md-4">
-              <ManagerNavigation navigation={this.handleNavigation} />
-            </div>
-            <div className="col col-md-8">
-              <OnlineOrders />
+          <div>
+            <ManagerNavigation navigation={this.handleNavigation} />
+            <div className="row">
+              <div className="col">
+                <OnlineOrders />
+              </div>
             </div>
           </div>
         );
       case "tables":
         return (
-          <div className="row">
-            <div className="col col-md-4">
-              <ManagerNavigation navigation={this.handleNavigation} />
-            </div>
-            <div className="col col-md-8">
-              <ManageTables />
+          <div>
+            <ManagerNavigation navigation={this.handleNavigation} />
+            <div className="row">
+              <div className="col">
+                <ManageTables />
+              </div>
             </div>
           </div>
         );
       case "menu":
         return (
-          <div className="row">
-            <div className="col col-md-4">
-              <ManagerNavigation navigation={this.handleNavigation} />
-            </div>
-            <div className="col col-md-8">
-              <ManageMenu />
+          <div className="">
+            <ManagerNavigation navigation={this.handleNavigation} />
+            <div className="row">
+              <div className="col">
+                <ManageMenu />
+              </div>
             </div>
           </div>
         );
 
       default:
         return (
-          <div className="row">
-            <div className="col col-md-4">
-              <ManagerNavigation navigation={this.handleNavigation} />
-            </div>
-            <div className="col col-md-8">
-              <OnlineOrders />
+          <div className="">
+            <ManagerNavigation navigation={this.handleNavigation} />
+            <div className="row">
+              <div className="col">
+                <OnlineOrders />
+              </div>
             </div>
           </div>
         );

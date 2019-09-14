@@ -17,45 +17,48 @@ class WaiterNavigation extends Component {
 
   render() {
     return (
-      <div className="card card-default">
-        <div className="card-header">
-          Serveur
-          <button
-            className="btn btn-danger float-right"
-            onClick={this.handleLogout}
-          >
-            Quitter
-          </button>
-        </div>
-        <div className="card-body">
-          <ul className="list-group">
-            <li className="list-group-item">
-              <button
-                className="btn btn-primary"
-                onClick={this.handleShowCreateOrder}
-              >
-                Ajouter Commande
-              </button>
-            </li>
-            <li className="list-group-item">
-              <button
-                className="btn btn-primary"
-                onClick={this.handleShowOrdersToBeServed}
-              >
-                List Commnade prete a servir
-              </button>
-            </li>
-            <li className="list-group-item">
-              <button
-                className="btn btn-primary"
-                onClick={this.handleShowOrdersServed}
-              >
-                List Commnade servis a table
-              </button>
-            </li>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a className="navbar-brand text-light">Serveur </a>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#managerNav"
+          aria-controls="managerNav"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="managerNav">
+          <ul className="navbar-nav ml-auto">
+            <button
+              className="btn btn-outline-primary"
+              onClick={this.handleShowCreateOrder}
+            >
+              Ajouter Commande
+            </button>
+            <button
+              className="btn btn-outline-primary"
+              onClick={this.handleShowOrdersToBeServed}
+            >
+              List Commnade prete a servir
+            </button>
+            <button
+              className="btn btn-outline-primary"
+              onClick={this.handleShowOrdersServed}
+            >
+              List Commnade servis a table
+            </button>
+            <button
+              className="btn btn-danger float-right"
+              onClick={this.handleLogout}
+            >
+              Quitter
+            </button>
           </ul>
         </div>
-      </div>
+      </nav>
     );
   }
 }

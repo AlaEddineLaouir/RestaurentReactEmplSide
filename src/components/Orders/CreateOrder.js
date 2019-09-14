@@ -18,12 +18,17 @@ class CreateOrder extends Component {
     this.props.getNonOccupiedTAbleList();
   }
   handleAction = () => {
-    if (this.props.role === "RC") {
-      this.props.makeOrder(this.state.orders, true);
+    if (
+      typeof this.state.orders !== "undefined" &&
+      this.state.orders.length > 0
+    ) {
+      if (this.props.role === "RC") {
+        this.props.makeOrder(this.state.orders, true);
+      } else {
+        this.props.makeOrder(this.state.orders, false, this.state.table);
+      }
     } else {
-      this.props.makeOrder(this.state.orders, false, this.state.table);
-
-      console.log(this.state.table);
+      console.log("Au Moin 1 plat");
     }
   };
   handleShowMenu = () => {
@@ -75,7 +80,7 @@ class CreateOrder extends Component {
   render() {
     if (this.state.displayMenu) {
       return (
-        <div>
+        <div className="container text-center">
           <button onClick={this.handleShowMenu} className="btn btn-primary">
             Menu
           </button>
@@ -90,7 +95,7 @@ class CreateOrder extends Component {
       );
     } else {
       return (
-        <div className="container">
+        <div className="container text-center">
           <button onClick={this.handleShowMenu} className="btn btn-primary">
             Menu
           </button>

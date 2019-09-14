@@ -13,37 +13,42 @@ class ChefNavigation extends Component {
   };
   render() {
     return (
-      <div class="card card-default">
-        <div class="card-header">
-          Chef cuisinie
-          <button
-            className="btn btn-danger float-right"
-            onClick={this.handleLogout}
-          >
-            Quitter
-          </button>
-        </div>
-        <div class="card-body">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <button
-                onClick={this.handleShowNewOrders}
-                className="btn btn-primary"
-              >
-                List Des Nouvelles Commandes
-              </button>
-            </li>
-            <li class="list-group-item">
-              <button
-                onClick={this.handleHideNewOrders}
-                className="btn btn-primary"
-              >
-                List Des Commandes en Traitement
-              </button>
-            </li>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a className="navbar-brand text-light">Chef </a>
+
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#managerNav"
+          aria-controls="managerNav"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="managerNav">
+          <ul className="navbar-nav ml-auto">
+            <button
+              onClick={this.handleShowNewOrders}
+              className="btn btn-outline-primary"
+            >
+              List Des Nouvelles Commandes
+            </button>
+            <button
+              onClick={this.handleHideNewOrders}
+              className="btn btn-outline-primary"
+            >
+              List Des Commandes en Traitement
+            </button>
+            <button
+              className="btn btn-danger float-right"
+              onClick={this.handleLogout}
+            >
+              Quitter
+            </button>
           </ul>
         </div>
-      </div>
+      </nav>
     );
   }
 }

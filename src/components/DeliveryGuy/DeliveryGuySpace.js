@@ -15,23 +15,23 @@ class DeliveryGuySpace extends Component {
   render() {
     if (this.state.showToBeDelivered) {
       return (
-        <div className="row">
-          <div className="col col-md-4">
-            <DeliveryGuyNavigation navigation={this.handleNavigation} />
-          </div>
-          <div className="col col-md-8">
-            <OrdersToBeDelivered />
+        <div className="">
+          <DeliveryGuyNavigation navigation={this.handleNavigation} />
+          <div className="row">
+            <div className="col">
+              <OrdersToBeDelivered />
+            </div>
           </div>
         </div>
       );
     } else {
       return (
-        <div className="row">
-          <div className="col col-md-4">
-            <DeliveryGuyNavigation navigation={this.handleNavigation} />
-          </div>
-          <div className="col col-md-8">
-            <OrdersOnDelivery />
+        <div className="">
+          <DeliveryGuyNavigation navigation={this.handleNavigation} />
+          <div className="row">
+            <div className="col ">
+              <OrdersOnDelivery />
+            </div>
           </div>
         </div>
       );

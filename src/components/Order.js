@@ -46,7 +46,7 @@ class Order extends Component {
         <div className="col-sm-6">
           <div className="card">
             <div className="card-header">
-              <h5 className="card-title">Table : {order.table}</h5>
+              <h5 className="card-title">{this.props.title}</h5>
               <p className="card-text">
                 <span>Etat : {order.state}</span>
                 <span className="float-right">Total : {order.total} </span>

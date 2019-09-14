@@ -19,52 +19,54 @@ class ManagerNavigation extends Component {
   };
   render() {
     return (
-      <div className="card card-default">
-        <div className="card-header">
-          Gestionaire de Commande
-          <button
-            className="btn btn-danger float-right"
-            onClick={this.handleLogout}
-          >
-            Quitter
-          </button>
-        </div>
-        <div className="card-body">
-          <ul className="list-group">
-            <li className="list-group-item">
-              <button className="btn btn-primary" onClick={this.handleShowMenu}>
-                Gerer Menu
-              </button>
-            </li>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a className="navbar-brand text-light"> Gestionaire de Commande</a>
 
-            <li className="list-group-item">
-              <button
-                className="btn btn-primary"
-                onClick={this.handleShowTables}
-              >
-                List Des Tables
-              </button>
-            </li>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#managerNav"
+          aria-controls="managerNav"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-            <li className="list-group-item">
-              <button
-                className="btn btn-primary"
-                onClick={this.handleShowOnlineOrders}
-              >
-                Liste des commandes fiate online
-              </button>
-            </li>
-            <li className="list-group-item">
-              <button
-                className="btn btn-primary"
-                onClick={this.handleShowNewOrder}
-              >
-                Ajouter une comande
-              </button>
-            </li>
+        <div className="collapse navbar-collapse" id="managerNav">
+          <ul className="navbar-nav ml-auto">
+            <button
+              className="btn btn-outline-primary float-right"
+              onClick={this.handleShowMenu}
+            >
+              Gerer Menu
+            </button>
+            <button
+              className="btn btn-outline-primary float-right"
+              onClick={this.handleShowTables}
+            >
+              List Des Tables
+            </button>
+            <button
+              className="btn btn-outline-primary float-right"
+              onClick={this.handleShowOnlineOrders}
+            >
+              Liste des commandes fiate online
+            </button>
+            <button
+              className="btn btn-outline-primary float-right"
+              onClick={this.handleShowNewOrder}
+            >
+              Ajouter une comande
+            </button>
+            <button
+              className="btn btn-danger float-right"
+              onClick={this.handleLogout}
+            >
+              Quitter
+            </button>
           </ul>
         </div>
-      </div>
+      </nav>
     );
   }
 }
