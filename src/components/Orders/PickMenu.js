@@ -90,6 +90,7 @@ class MenuDishe extends Component {
                   name="quantity"
                   value={this.state.quantity}
                   onChange={this.onChange}
+                  min="1"
                 />
               </div>
               <div className="col-auto">

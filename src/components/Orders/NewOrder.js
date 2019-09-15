@@ -118,6 +118,7 @@ class OrderdDish extends Component {
                   type="number"
                   className="form-control form-control-small"
                   name="quantity"
+                  min="1"
                   value={this.props.quantity}
                   onChange={this.handleQuantityChange}
                 />

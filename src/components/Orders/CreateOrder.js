@@ -25,7 +25,11 @@ class CreateOrder extends Component {
       if (this.props.role === "RC") {
         this.props.makeOrder(this.state.orders, true);
       } else {
-        this.props.makeOrder(this.state.orders, false, this.state.table);
+        if (typeof table === "undefined" || tabem === "") {
+          alert("Selction dune table obligatiore");
+        } else {
+          this.props.makeOrder(this.state.orders, false, this.state.table);
+        }
       }
     } else {
       console.log("Au Moin 1 plat");
