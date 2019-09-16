@@ -10,13 +10,20 @@ import Axios from "axios";
 import axios from "axios";
 
 export const logIn = user => async dispatch => {
-  const res = await axios.post("http://localhost:8000/api/loginEmployee", user);
-  Axios.defaults.headers["Authorization"] = "Bearer " + res.data.token;
+  try {
+    const res = await axios.post(
+      "http://localhost:8000/api/loginEmployee",
+      user
+    );
+    Axios.defaults.headers["Authorization"] = "Bearer " + res.data.token;
 
-  dispatch({
-    type: LOGIN_EMPLOYEE,
-    payload: res.data
-  });
+    dispatch({
+      type: LOGIN_EMPLOYEE,
+      payload: res.data
+    });
+  } catch (error) {
+    alert("Erreur: " + error.response.data);
+  }
 };
 
 export const getEmployeeList = () => async dispatch => {

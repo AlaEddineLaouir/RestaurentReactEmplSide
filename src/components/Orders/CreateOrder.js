@@ -25,14 +25,17 @@ class CreateOrder extends Component {
       if (this.props.role === "RC") {
         this.props.makeOrder(this.state.orders, true);
       } else {
-        if (typeof table === "undefined" || tabem === "") {
-          alert("Selction dune table obligatiore");
-        } else {
+        if (
+          typeof this.state.table !== "undefined" &&
+          this.state.table.length > 0
+        ) {
           this.props.makeOrder(this.state.orders, false, this.state.table);
+        } else {
+          alert("Selction dune table obligatiore");
         }
       }
     } else {
-      console.log("Au Moin 1 plat");
+      alert("Il faut au loin un plat");
     }
   };
   handleShowMenu = () => {

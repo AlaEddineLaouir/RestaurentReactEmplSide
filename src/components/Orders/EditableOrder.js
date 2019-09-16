@@ -35,7 +35,6 @@ export default class EditableOrder extends Component {
               <h5 className="card-title">Numero : {order.id}</h5>
               <p className="card-text">
                 <span>Etat : {order.state}</span>
-                <span className="float-right">Total : {order.total} </span>
               </p>
               <button
                 onClick={this.handleShowDetails}
@@ -56,7 +55,6 @@ export default class EditableOrder extends Component {
               <h5 className="card-title">Numero : {order.id}</h5>
               <p className="card-text">
                 <span>Etat : {order.state}</span>
-                <span className="float-right">Total : {order.total} </span>
               </p>
               <button
                 onClick={this.handleHideDetails}

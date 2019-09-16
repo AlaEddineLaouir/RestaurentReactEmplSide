@@ -29,6 +29,11 @@ class OrdersToPrepareList extends Component {
                 order={order}
                 action={this.handlePrepareAction}
                 actionTitle="PREPARER"
+                title={
+                  order.table !== ""
+                    ? "Table : " + order.table
+                    : "Adress : " + order.adress
+                }
               />
             ))}
           </div>

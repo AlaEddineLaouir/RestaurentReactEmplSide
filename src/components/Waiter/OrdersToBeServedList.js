@@ -27,7 +27,9 @@ class OrdersToBeServedList extends Component {
                 order={order}
                 action={this.handleServis}
                 actionTitle="Servis"
-                title={"Table : " + order.table}
+                title={
+                  order.table === "" ? "Emporter" : "Table : " + order.table
+                }
               />
             ))}
           </div>

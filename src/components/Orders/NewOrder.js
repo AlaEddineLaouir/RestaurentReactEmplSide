@@ -9,7 +9,7 @@ export default class NewOrder extends Component {
   };
   render() {
     const { orders, actionTitle } = this.props;
-    if (this.props.role === "RC") {
+    if (this.props.role === "RC" || actionTitle === "Modifier") {
       return (
         <div className="col-md-6">
           <div className="card">

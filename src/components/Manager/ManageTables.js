@@ -154,7 +154,7 @@ class Table extends Component {
       <tr>
         <td>{id}</td>
         <td>{position}</td>
-        <td>occupied</td>
+        <td>{occupied}</td>
         <td>
           {" "}
           <button class="btn btn-primary btn-sm" onClick={this.handleEdit}>
